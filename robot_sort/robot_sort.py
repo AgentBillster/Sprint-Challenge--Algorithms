@@ -3,7 +3,7 @@ class SortingRobot:
         """
         SortingRobot takes a list and sorts it.
         """
-        self.l = l          # The list the robot is tasked with sorting
+        self._list = l          # The list the robot is tasked with sorting
         self._item = None       # The item the robot is holding
         self._position = 0      # The list position the robot is at
         self._light = "OFF"     # The state of the robot's light
@@ -97,22 +97,21 @@ class SortingRobot:
         """
         return self._light == "ON"
 
-    def partition(self):
-        pivot = arr[0]
-        left = []
-        right = []
-        for x in arr[1:]:
-            if x <= pivot:
-                left.append(x)
-            else:
-                right.append(x)
-        return left, pivot, right
+
+# will implement the bubble sort(myfavorite)
 
     def sort(self):
-        if len(arr) <= 1:
-            return arr
-        left, pivot, right = self.partition(arr)
-        return self.sort(left) + [pivot] + self.sort(right)
+        # get list
+        s = self._list
+        # get first ele
+        for i in range(len(s)):
+            # get second ele
+            for j in range(1, len(s)):
+                # if less than then swap
+                if s[j] < s[j - 1]:
+                    s[j], s[j - 1] = s[j - 1], s[j]
+
+        return s
 
 
 if __name__ == "__main__":
@@ -124,4 +123,5 @@ if __name__ == "__main__":
 
     robot = SortingRobot(l)
 
-    print(l)
+    robot.sort()
+    print(robot._list)

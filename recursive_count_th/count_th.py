@@ -5,18 +5,11 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 
 
-# def count_th(word):
-#     length = len(word)
-#     if length < 2:
-#         return 0
-#     if word[0:2] == 'th':
-#         return count_th(word[2:]) + 1
-#     else:
-#         return count_th(word[1:])
-    
-    
-    
-    
-word = "hello"
-
-print(word[2:]) + 1
+def count_th(word):
+    length = len(word)
+    if length < 2:
+        return 0
+    if word[0:2] == 'th':
+        return count_th(word[2:]) + 1
+    else:
+        return count_th(word[1:])
